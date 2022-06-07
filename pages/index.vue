@@ -1,5 +1,5 @@
 <template>
-  <Tutorial/>
+  <h1>Buscador de Lolzeiro</h1>
 </template>
 
 <script>
