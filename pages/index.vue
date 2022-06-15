@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import axios from "axios";
 
 export default {
   name: 'IndexPage',
@@ -25,10 +26,12 @@ export default {
   methods: {
     async buscar_player(){
       console.log(this.nome_do_player)
-      APICallString = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + this.nome_do_player + '?api_key='+ API_KEY;
+      const APICallString = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + this.nome_do_player + '?api_key='+ process.env.API_KEY;
       try {
-        const { data } = await axios.get(APICallString)
+        const data = await axios.get(APICallString);
+        console.log(data)
       } catch (e) {
+        console.log(e)
         alert('erro ao buscar')
       }
     }
